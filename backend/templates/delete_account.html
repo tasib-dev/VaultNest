@@ -1,0 +1,30 @@
+<h1>Delete Account</h1>
+
+<p>
+    This action is permanent.
+    All files will be deleted.
+</p>
+
+<form method="POST">
+
+    Password:
+
+    <input
+        type="password"
+        name="password"
+        required
+    >
+
+    <br><br>
+
+    <button type="submit">
+        Delete My Account
+    </button>
+
+</form>
+
+<br>
+
+<a href="{{ url_for('files.dashboard')}}">
+    Cancel
+</a>

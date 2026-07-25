@@ -1,0 +1,133 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+
+    background: #121212;
+    color: #e0e0e0;
+}
+
+nav {
+    padding: 15px 0;
+}
+
+nav a {
+    color: #4da3ff;
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #333;
+}
+
+.file-card {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.file-actions {
+    margin-top: 10px;
+}
+
+.file-actions a {
+    color: #4da3ff;
+    text-decoration: none;
+}
+
+.file-actions a:hover {
+    text-decoration: underline;
+}
+
+
+.storage-bar {
+    width: 100%;
+    height: 16px;
+    background: #333;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 10px 0 25px;
+}
+
+.storage-fill {
+    height: 100%;
+    background: #4da3ff;
+    min-width: 8px;
+}
+
+.file-actions a {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-right: 6px;
+    border-radius: 6px;
+    background: #2d2d2d;
+    border: 1px solid #444;
+    color: #4da3ff;
+    text-decoration: none;
+}
+
+.file-actions a:hover {
+    background: #383838;
+}
+
+.delete-btn {
+	color: #ff6b6b !important;
+}
+
+.file-card {
+    transition: 0.2s;
+}
+
+.file-card:hover {
+    transform: translateY(-2px);
+}
+
+.share-box {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.share-input {
+    width: 100%;
+    padding: 12px;
+    background: #2d2d2d;
+    border: 1px solid #444;
+    border-radius: 8px;
+    color: white;
+    box-sizing: border-box;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 16px;
+    background: #2d2d2d;
+    border: 1px solid #444;
+    border-radius: 8px;
+    color: #4da3ff;
+    text-decoration: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.btn:hover {
+    background: #383838;
+}
+
+.download-btn {
+    background: #4da3ff;
+    color: white !important;
+    border: none;
+    font-weight: bold;
+}
+
+.download-btn:hover {
+    opacity: 0.9;
+}

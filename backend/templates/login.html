@@ -1,0 +1,21 @@
+<h1>Cloud Drive Login</h1>
+
+<form method="POST">
+    Username:
+    <input type="text" name="username">
+
+    <br><br>
+
+    Password:
+    <input type="password" name="password">
+
+    <br><br>
+
+    <button type="submit">
+        Login
+    </button>
+
+    <br><br>
+
+    <a href="{{ url_for('auth.register') }}">Register</a>
+</form>

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Share Link</h1>
+
+<div class="share-box">
+
+    <p>Anyone with this link can download the file.</p>
+
+    <input
+        class="share-input"
+        type="text"
+        id="share-link"
+        value="{{ share_url }}"
+        readonly
+    >
+
+    <br><br>
+
+    <button class="btn" onclick="copyLink()">
+        Copy Link
+    </button>
+
+    <a
+        class="btn"
+        href="{{ url_for('files.dashboard') }}"
+    >
+        Back to Dashboard
+    </a>
+
+</div>
+
+<script>
+function copyLink() {
+    const input = document.getElementById("share-link");
+
+    navigator.clipboard.writeText(input.value);
+
+    const btn = event.target;
+
+    btn.innerText = "Copied!";
+
+    setTimeout(() => {
+    	btn.innerText = "Copy Link";
+    }, 2000);
+}
+</script>
+
+{% endblock %}

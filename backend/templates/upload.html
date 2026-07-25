@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Upload File</h1>
+
+<form id="uploadForm" method="POST" enctype="multipart/form-data">
+    <input type="file" name="file">
+
+    <br><br>
+
+    <button type="submit">
+        Upload
+    </button>
+</form>
+
+
+<div id="uploadProgress" style="display:none; margin-top:20px;">
+
+    <div style="margin-bottom:8px;">
+        Uploading...
+    </div>
+
+    <progress
+        id="progressBar"
+        value="0"
+        max="100"
+        style="width:100%;">
+    </progress>
+
+    <div id="progressText" style="margin-top:8px;">
+        0%
+    </div>
+
+</div>
+
+<script>
+
+const form = document.getElementById("uploadForm");
+
+let progressInterval = null;
+
+form.addEventListener("submit", function (event) {
+
+    event.preventDefault();
+
+    document.getElementById("uploadProgress").style.display = "block";
+
+    const formData = new FormData(form);
+
+    const xhr = new XMLHttpRequest();
+    
+    progressInterval = setInterval(async function () {
+
+    try {
+
+        const response = await fetch("/upload-progress");
+
+        const progress = await response.json();
+
+        document.getElementById("progressBar").value =
+            progress.percent;
+
+        document.getElementById("progressText").innerText =
+            progress.percent + "%";
+
+    } catch (e) {
+
+        console.log("Progress poll failed", e);
+
+    }
+
+}, 250);
+    
+    xhr.upload.onprogress = function (event) {
+
+    if (event.lengthComputable) {
+
+        const percent = Math.round(
+            (event.loaded / event.total) * 100
+        );
+
+        document.getElementById("progressBar").value = percent;
+
+        document.getElementById("progressText").innerText =
+            percent + "%";
+
+    }
+
+};
+
+    xhr.open("POST", form.action || window.location.pathname, true);
+
+    xhr.onload = function () {
+
+    if (xhr.status === 200) {
+
+        window.location.href = xhr.responseURL;
+
+    } else {
+
+        alert("Upload failed!");
+
+    }
+
+};
+
+xhr.send(formData);
+
+});
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,7 @@
+{
+    "version": "1.0.0",
+    "build": 40,
+    "apk": "/download/app.apk",
+    "force": false,
+    "message": "Latest version"
+}

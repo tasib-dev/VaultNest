@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cloud Storage</title>
+    <link rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+<body>
+
+
+<nav>
+    <strong>☁️  Cloud Drive</strong>
+
+    |
+
+    <a href="{{ url_for('files.dashboard') }}">
+        Dashboard
+    </a>
+
+    |
+
+    <a href="{{ url_for('files.upload') }}">
+        Upload
+    </a>
+
+    |
+
+    <a href="{{ url_for('auth.logout') }}">
+        Logout
+    </a>
+
+    |
+
+    <a href="{{ url_for('auth.delete_account') }}">
+        Delete Account
+    </a>
+</nav>
+
+
+
+
+    <hr>
+    
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>

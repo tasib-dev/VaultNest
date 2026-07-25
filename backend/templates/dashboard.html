@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Dashboard</h1>
+
+<p>Logged in as: {{ username }}</p>
+
+<p>
+
+Storage Used: {{ used_mb }} MB / {{ max_gb }} GB
+
+({{ ((used_mb / (max_gb * 1024)) * 100)|round(2) }}%)
+
+</p>
+
+
+
+<div class="storage-bar">
+    <div class="storage-fill"
+         style="width: {{ (used_mb / (max_gb * 1024) * 100)|round }}%;">
+    </div>
+</div>
+
+
+
+
+<h2>Your Files</h2>
+
+
+{% for file in file_list %}
+<div class="file-card">
+
+    <strong>
+    {% if file.filename.endswith('.png') or
+          file.filename.endswith('.jpg') or
+          file.filename.endswith('.jpeg') %}
+        🖼️
+    {% elif file.filename.endswith('.pdf') %}
+        📄
+    {% elif file.filename.endswith('.zip') %}
+        📦
+    {% else %}
+        📁
+    {% endif %}
+
+    {{ file.filename }}
+    </strong>
+
+    <div class="file-actions">
+
+        <a href="{{ url_for('files.download_file',
+                            filename=file.filename) }}">
+            Download
+        </a>
+
+        
+
+        {% if file.shared %}
+            <a href="{{ url_for('files.unshare_file',
+                                filename=file.filename) }}">
+                Stop Sharing
+            </a>
+        {% else %}
+            <a href="{{ url_for('files.share_file',
+                                filename=file.filename) }}">
+                Share
+            </a>
+        {% endif %}
+
+        
+
+        <a  class="delete-btn"
+	    href="{{ url_for('files.delete_file',
+                            filename=file.filename) }}">
+            Delete
+        </a>
+
+    </div>
+
+</div>
+{% endfor %}
+
+
+
+{% endblock %}
