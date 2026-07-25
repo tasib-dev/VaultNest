@@ -6,7 +6,7 @@ The following versions currently receive security updates.
 
 | Version | Supported |
 |---------|-----------|
-| 1.0.x | Yes |
+| 1.0.0 | Yes |
 | Earlier versions | No |
 
 ---
