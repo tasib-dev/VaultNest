@@ -1,7 +1,7 @@
 {
     "version": "1.0.1",
     "build": 2,
-    "apk": "https://github.com/tasib-dev/cloud-storage-update/releases/download/v1.0.0/app-release.apk",
+    "apk": "https://github.com/tasib-dev/VaultNest/releases/download/v1.0.0/VaultNest.apk",
     "force": false,
     "message": "A new version is available.\n\n• Bug fixes\n• Performance improvements"
 }
