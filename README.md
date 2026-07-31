@@ -57,12 +57,12 @@ Vault Nest is a privacy-focused cloud storage application built with Flutter and
 ```text
 VaultNest/
 │
-├── flutter_app/
+├── frontend/
 │   ├── lib/
 │   ├── android/
 │   └── ...
 │
-├── flask_backend/
+|──backend/
 │   ├── app.py
 │   ├── templates/
 │   ├── static/
